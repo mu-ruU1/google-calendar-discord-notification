@@ -1,0 +1,13 @@
+# Discord API
+export D_BOT_TOKEN=""
+export D_A1_CHANNEL_ID=""
+export D_A2_CHANNEL_ID=""
+
+# Google Calendar API
+export G_CLIENT_ID=""
+export G_PROJECT_ID=""
+export G_AUTH_URL=""
+export G_TOKEN_URL=""
+export G_AUTH_PROVIDER_X509_CERT_URL=""
+export G_CLIENT_SECRET=""
+export G_REDIRECT_URIS=""
