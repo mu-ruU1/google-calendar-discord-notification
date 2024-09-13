@@ -2,6 +2,7 @@
 export D_BOT_TOKEN=""
 export D_A1_CHANNEL_ID=""
 export D_A2_CHANNEL_ID=""
+export D_ROLE_ID=""
 
 # Google Calendar API
 export G_CALENDAR_ID=""
