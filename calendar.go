@@ -35,6 +35,17 @@ func formatKey(key string) string {
 	return strings.ToLower(key[2:])
 }
 
+func formatTime(timeStr string) string {
+	t, err := time.Parse(time.RFC3339, timeStr)
+	if err != nil {
+		fmt.Println("Error converting time:", err)
+		os.Exit(1)
+	}
+
+	ft := t.Format("01/02 15:04")
+	return ft
+}
+
 func cal() {
 	credentialKey := [...]string{"G_TYPE", "G_PROJECT_ID", "G_PRIVATE_KEY_ID", "G_PRIVATE_KEY", "G_CLIENT_EMAIL", "G_CLIENT_ID", "G_AUTH_URL", "G_TOKEN_URL", "G_AUTH_PROVIDER_X509_CERT_URL", "G_CLIENT_X509_CERT_URL", "G_UNIVERSE_DOMAIN"}
 
@@ -71,11 +82,11 @@ func cal() {
 	}
 
 	// 日時を取得
-	now := time.Now().Format(time.RFC3339)
-	tommorow := time.Now().AddDate(0, 0, 1).Format(time.RFC3339)
+	nowRfc := time.Now().Format(time.RFC3339)
+	tommorowRfc := time.Now().AddDate(0, 0, 1).Format(time.RFC3339)
 
 	// カレンダーの予定を取得
-	events, err := srv.Events.List(calId).ShowDeleted(false).SingleEvents(true).TimeMin(now).TimeMax(tommorow).MaxResults(10).OrderBy("startTime").Do()
+	events, err := srv.Events.List(calId).ShowDeleted(false).SingleEvents(true).TimeMin(nowRfc).TimeMax(tommorowRfc).MaxResults(10).OrderBy("startTime").Do()
 	if err != nil {
 		log.Fatalf("Unable to retrieve events: %v", err)
 	}
@@ -84,14 +95,13 @@ func cal() {
 	if len(events.Items) == 0 {
 		fmt.Println("No upcoming events found.")
 	} else {
-		fmt.Println("Upcoming events:")
 		for _, item := range events.Items {
 			var start string
 			var end string
 
 			if item.Start.DateTime != "" {
-				start = item.Start.DateTime
-				end = item.Start.DateTime
+				start = formatTime(item.Start.DateTime)
+				end = formatTime(item.End.DateTime)
 			} else {
 				start = item.Start.Date
 				end = item.End.Date
