@@ -74,7 +74,7 @@ func discord() {
 			fmt.Println("Error creating message:", err)
 			continue
 		}
-		discord.ChannelMessageSend(channelId, "<@"+roleId+">")
+		discord.ChannelMessageSend(channelId, "<@"+roleId+"> 本日 予定があります")
 		discord.ChannelMessageSendEmbed(channelId, embed)
 	}
 

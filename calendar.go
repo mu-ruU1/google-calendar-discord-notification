@@ -2,11 +2,9 @@ package main
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"log"
 	"os"
-	"strings"
 	"time"
 
 	"google.golang.org/api/calendar/v3"
@@ -31,9 +29,9 @@ func loadEnv(key string) (string, error) {
 	return value, nil
 }
 
-func formatKey(key string) string {
-	return strings.ToLower(key[2:])
-}
+// func formatKey(key string) string {
+// 	return strings.ToLower(key[2:])
+// }
 
 func formatTime(timeStr string) string {
 	t, err := time.Parse(time.RFC3339, timeStr)
@@ -47,25 +45,9 @@ func formatTime(timeStr string) string {
 }
 
 func cal() {
-	credentialKey := [...]string{"G_TYPE", "G_PROJECT_ID", "G_PRIVATE_KEY_ID", "G_PRIVATE_KEY", "G_CLIENT_EMAIL", "G_CLIENT_ID", "G_AUTH_URL", "G_TOKEN_URL", "G_AUTH_PROVIDER_X509_CERT_URL", "G_CLIENT_X509_CERT_URL", "G_UNIVERSE_DOMAIN"}
-
-	credentials := make(map[string]string)
-
-	for _, key := range credentialKey {
-		if value, err := loadEnv(key); err != nil {
-			fmt.Println("Error loading environment variable:", err)
-			os.Exit(1)
-		} else {
-			credentials[formatKey(key)] = value
-		}
-	}
-
 	// Convert map to JSON
-	credentialJSON, err := json.Marshal(credentials)
-	if err != nil {
-		fmt.Println("Error converting credentials to JSON:", err)
-		os.Exit(1)
-	}
+	credentialStr, _ := loadEnv("G_CREDENTIALS")
+	credentialByte := []byte(credentialStr)
 
 	// カレンダーIDを取得
 	calId, err := loadEnv("G_CALENDAR_ID")
@@ -76,7 +58,7 @@ func cal() {
 	ctx := context.Background()
 
 	// GoogleカレンダーAPIサービスを作成
-	srv, err := calendar.NewService(ctx, option.WithCredentialsJSON(credentialJSON))
+	srv, err := calendar.NewService(ctx, option.WithCredentialsJSON(credentialByte))
 	if err != nil {
 		log.Fatalf("Unable to retrieve Calendar client: %v", err)
 	}

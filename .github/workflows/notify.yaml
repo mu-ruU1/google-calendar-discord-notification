@@ -2,6 +2,8 @@ name: notify
 
 on:
   workflow_dispatch:
+  # schedule:
+  #   - cron: "0 9 * * *"
 
 jobs:
   run:
@@ -27,14 +29,4 @@ jobs:
           D_ROLE_ID: ${{ secrets.D_ROLE_ID }}
           # Google Calendar API
           G_CALENDAR_ID: ${{ secrets.G_CALENDAR_ID }}
-          G_TYPE: ${{ secrets.G_TYPE }}
-          G_PROJECT_ID: ${{ secrets.G_PROJECT_ID }}
-          G_PRIVATE_KEY_ID: ${{ secrets.G_PRIVATE_KEY_ID }}
-          G_PRIVATE_KEY: ${{ secrets.G_PRIVATE_KEY }}
-          G_CLIENT_EMAIL: ${{ secrets.G_CLIENT_EMAIL }}
-          G_CLIENT_ID: ${{ secrets.G_CLIENT_ID }}
-          G_AUTH_URL: ${{ secrets.G_AUTH_URL }}
-          G_TOKEN_URL: ${{ secrets.G_TOKEN_URL }}
-          G_AUTH_PROVIDER_X509_CERT_URL: ${{ secrets.G_AUTH_PROVIDER_X509_CERT_URL }}
-          G_CLIENT_X509_CERT_URL: ${{ secrets.G_CLIENT_X509_CERT_URL }}
-          G_UNIVERSE_DOMAIN: ${{ secrets.G_UNIVERSE_DOMAIN }}
+          G_CREDENTIALS: ${{ secrets.G_CREDENTIALS }}

@@ -6,19 +6,9 @@ export D_ROLE_ID=""
 
 # Google Calendar API
 export G_CALENDAR_ID=""
-
-export G_TYPE=""
-export G_PROJECT_ID=""
-export G_PRIVATE_KEY_ID=""
-export G_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----
-..........
-..........
------END PRIVATE KEY-----
-"
-export G_CLIENT_EMAIL=""
-export G_CLIENT_ID=""
-export G_AUTH_URL=""
-export G_TOKEN_URL=""
-export G_AUTH_PROVIDER_X509_CERT_URL=""
-export G_CLIENT_X509_CERT_URL=""
-export G_UNIVERSE_DOMAIN=""
+export G_CREDENTIALS='
+{
+  "type": "service_account",
+  ...
+}
+'
