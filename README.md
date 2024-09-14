@@ -4,7 +4,9 @@ Googleカレンダー Discord通知Bot
 
 ## 準備
 
-## 使い方
+1. [Google Calendar API](./docs/google.md)
+2. [Discord Bot](./docs/discord.md)
+3. [GitHub Actions](./docs/github.md)
 
 ## Docs
 
