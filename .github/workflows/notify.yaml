@@ -1,0 +1,40 @@
+name: notify
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.23"
+
+      - name: Install dependencies
+        run: go get .
+
+      - name: Run
+        run: go run .
+        env:
+          # Discord API
+          D_BOT_TOKEN: ${{ secret.D_BOT_TOKEN }}
+          D_A1_CHANNEL_ID: ${{ secret.D_A1_CHANNEL_ID }}
+          D_A2_CHANNEL_ID: ${{ secret.D_A2_CHANNEL_ID }}
+          D_ROLE_ID: ${{ secret.D_ROLE_ID }}
+          # Google Calendar API
+          G_CALENDAR_ID: ${{ secret.G_CALENDAR_ID }}
+          G_TYPE: ${{ secret.G_TYPE }}
+          G_PROJECT_ID: ${{ secret.G_PROJECT_ID }}
+          G_PRIVATE_KEY_ID: ${{ secret.G_PRIVATE_KEY_ID }}
+          G_PRIVATE_KEY: ${{ secret.G_PRIVATE_KEY }}
+          G_CLIENT_EMAIL: ${{ secret.G_CLIENT_EMAIL }}
+          G_CLIENT_ID: ${{ secret.G_CLIENT_ID }}
+          G_AUTH_URI: ${{ secret.G_AUTH_URI }}
+          G_TOKEN_URI: ${{ secret.G_TOKEN_URI }}
+          G_AUTH_PROVIDER_X509_CERT_URL: ${{ secret.G_AUTH_PROVIDER_X509_CERT_URL }}
+          G_CLIENT_X509_CERT_URL: ${{ secret.G_CLIENT_X509_CERT_URL }}
+          G_UNIVERSE_DOMAIN: ${{ secret.G_UNIVERSE_DOMAIN }}
