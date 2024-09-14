@@ -2,6 +2,8 @@
 
 Googleカレンダー Discord通知Bot
 
+![bot](./docs/img/image.jpg)
+
 ## 準備
 
 1. [Google Calendar API](./docs/google.md)
