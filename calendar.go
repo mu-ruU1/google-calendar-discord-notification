@@ -71,6 +71,7 @@ func cal() {
 	events, err := srv.Events.List(calId).ShowDeleted(false).SingleEvents(true).TimeMin(nowRfc).TimeMax(tommorowRfc).MaxResults(10).OrderBy("startTime").Do()
 	if err != nil {
 		log.Fatalf("Unable to retrieve events: %v", err)
+		os.Exit(0)
 	}
 
 	// 予定を抽出
