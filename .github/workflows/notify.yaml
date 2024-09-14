@@ -21,20 +21,20 @@ jobs:
         run: go run .
         env:
           # Discord API
-          D_BOT_TOKEN: ${{ secret.D_BOT_TOKEN }}
-          D_A1_CHANNEL_ID: ${{ secret.D_A1_CHANNEL_ID }}
-          D_A2_CHANNEL_ID: ${{ secret.D_A2_CHANNEL_ID }}
-          D_ROLE_ID: ${{ secret.D_ROLE_ID }}
+          D_BOT_TOKEN: ${{ secrets.D_BOT_TOKEN }}
+          D_A1_CHANNEL_ID: ${{ secrets.D_A1_CHANNEL_ID }}
+          D_A2_CHANNEL_ID: ${{ secrets.D_A2_CHANNEL_ID }}
+          D_ROLE_ID: ${{ secrets.D_ROLE_ID }}
           # Google Calendar API
-          G_CALENDAR_ID: ${{ secret.G_CALENDAR_ID }}
-          G_TYPE: ${{ secret.G_TYPE }}
-          G_PROJECT_ID: ${{ secret.G_PROJECT_ID }}
-          G_PRIVATE_KEY_ID: ${{ secret.G_PRIVATE_KEY_ID }}
-          G_PRIVATE_KEY: ${{ secret.G_PRIVATE_KEY }}
-          G_CLIENT_EMAIL: ${{ secret.G_CLIENT_EMAIL }}
-          G_CLIENT_ID: ${{ secret.G_CLIENT_ID }}
-          G_AUTH_URI: ${{ secret.G_AUTH_URI }}
-          G_TOKEN_URI: ${{ secret.G_TOKEN_URI }}
-          G_AUTH_PROVIDER_X509_CERT_URL: ${{ secret.G_AUTH_PROVIDER_X509_CERT_URL }}
-          G_CLIENT_X509_CERT_URL: ${{ secret.G_CLIENT_X509_CERT_URL }}
-          G_UNIVERSE_DOMAIN: ${{ secret.G_UNIVERSE_DOMAIN }}
+          G_CALENDAR_ID: ${{ secrets.G_CALENDAR_ID }}
+          G_TYPE: ${{ secrets.G_TYPE }}
+          G_PROJECT_ID: ${{ secrets.G_PROJECT_ID }}
+          G_PRIVATE_KEY_ID: ${{ secrets.G_PRIVATE_KEY_ID }}
+          G_PRIVATE_KEY: ${{ secrets.G_PRIVATE_KEY }}
+          G_CLIENT_EMAIL: ${{ secrets.G_CLIENT_EMAIL }}
+          G_CLIENT_ID: ${{ secrets.G_CLIENT_ID }}
+          G_AUTH_URI: ${{ secrets.G_AUTH_URI }}
+          G_TOKEN_URI: ${{ secrets.G_TOKEN_URI }}
+          G_AUTH_PROVIDER_X509_CERT_URL: ${{ secrets.G_AUTH_PROVIDER_X509_CERT_URL }}
+          G_CLIENT_X509_CERT_URL: ${{ secrets.G_CLIENT_X509_CERT_URL }}
+          G_UNIVERSE_DOMAIN: ${{ secrets.G_UNIVERSE_DOMAIN }}
