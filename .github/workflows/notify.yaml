@@ -33,8 +33,8 @@ jobs:
           G_PRIVATE_KEY: ${{ secrets.G_PRIVATE_KEY }}
           G_CLIENT_EMAIL: ${{ secrets.G_CLIENT_EMAIL }}
           G_CLIENT_ID: ${{ secrets.G_CLIENT_ID }}
-          G_AUTH_URI: ${{ secrets.G_AUTH_URI }}
-          G_TOKEN_URI: ${{ secrets.G_TOKEN_URI }}
+          G_AUTH_URL: ${{ secrets.G_AUTH_URL }}
+          G_TOKEN_URL: ${{ secrets.G_TOKEN_URL }}
           G_AUTH_PROVIDER_X509_CERT_URL: ${{ secrets.G_AUTH_PROVIDER_X509_CERT_URL }}
           G_CLIENT_X509_CERT_URL: ${{ secrets.G_CLIENT_X509_CERT_URL }}
           G_UNIVERSE_DOMAIN: ${{ secrets.G_UNIVERSE_DOMAIN }}
